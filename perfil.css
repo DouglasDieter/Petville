@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: 'Geologica', sans-serif;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #f7f7f7;
+}
+
+header{
+    width: 100%;
+    z-index: 99 !important;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
+
+li, a, button{
+    font-weight: 300;
+    font-size: 16px;
+    color: #1E1919;
+}
+
+#titulo{
+    margin: 200px auto 0px auto;
+    font-size: 50px;
+}
+
+.logo{
+    width: 10%;
+    margin: 5px auto 5px 10px;
+}
+
+.navlinks{
+    list-style: none;
+}
+
+.navlinks li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navlinks li:hover{
+    cursor:pointer;
+}
+
+.navlinks li a{
+    transition: all 0.3s ease 0s;
+    padding: 13px;
+    height: 100%;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.navlinks li a:hover{
+    transition: all 0.3s ease 0s;
+    color: black;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.botao{
+    transition: 0.3s ease;
+    padding: 13px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0a0a;
+    color: #f7f7f7;
+    border-style: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    font-style: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.botao i{
+    padding-right: 5px;
+}
+
+.botao:hover{
+    background-color: rgba(10, 10, 10, 0.9); 
+}
+
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin: 0 auto 50px auto;
+    border-style: solid;
+    border-color: #0a0a0a;
+    color:#0a0a0a;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: auto;
+}
+
+.container.top{
+    display: flex;
+    flex-direction: row;
+    border-radius: 0px;
+    box-shadow: none;
+    justify-content: space-between;
+    margin-top:0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    height: 20%;
+    width: 100%;
+    background-color: #0a0a0a;
+    color: #f7f7f7;
+}
+
+.container.vet{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90vw;
+    border: none;
+    height: 100vh;
+}
+
+.vet{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.vet.img{
+    position: cover;
+    background-image: url(img/vet3.png);
+    background-size: cover;
+    background-position-x: 40%;
+    width: 60%;
+    height: 26vh;
+    margin: 20px auto;
+    border-radius: 5px;
+    border-width: 2px;
+}
+
+
+.vet.img.dois{
+    background-image: url(img/vet1.png);
+}
+
+.vet.img.tres{
+    background-image: url(img/vet2.png);
+    background-position-x: 25%;
+}
+
+.vet.img.quatro{
+    background-image: url(img/vet4.png);
+}
+
+.veterinarios{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.descricao{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.desc{
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    max-width: 25%;
+}
+
+.down{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width: 50%;
+}
+.right{
+    width: 50%;
+}
+
+.add1{
+    float: right;
+    height: 26px;
+}
+
+.container h3{
+    margin: 15px 30px;
+}
+
+.container.head{
+    height: 50vh;
+    margin-top: 20vh;
+}
+
+.container.head > .container.top{
+    padding-bottom: 50px;
+}
+
+.add{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+::selection{
+    background-color: #0a0a0a;
+    color: white;
+}
+
+.container.top > ::selection{
+    background-color: #f7f7f7;
+    color: #1E1919;
+}
+
+.hr {
+    
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    width: 95%;
+    margin-left: 2.4%;
+
+  }
+
+.hr:last-of-type{
+    height: 0px;
+  }
+
+  .bot{
+    color: #aa0000;
+  }
+
+  .bot:hover{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  #desc{
+      appearance: none;
+      border: none;
+      background-color: #f7f7f7;
+  }
+  
+  #desc:hover{
+      cursor:pointer;
+  }
