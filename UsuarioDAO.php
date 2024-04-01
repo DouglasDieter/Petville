@@ -102,7 +102,7 @@ class UsuarioDAO {
         $conexao = new ConexaoBD();
         $conecta = $conexao->conectar();
         
-        $sql = "INSERT INTO `forum` (`idforum`, `titulo`, `texto`, `fkusuario`, `data`) VALUES (NULL, '$titulo', '$texto', '1', '2024-04-01 15:05:43.000000')";
+        $sql = "INSERT INTO `forum` (`idforum`, `titulo`, `texto`, `fkusuario`, `data`) VALUES (NULL, '$titulo', '$texto', '1', now())";
         
         if($conecta->query($sql) === TRUE){
             echo "<script>alert('Fórum criado com sucesso!')</script>";
