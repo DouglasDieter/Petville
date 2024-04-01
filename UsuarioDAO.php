@@ -2,11 +2,11 @@
 include 'ConexaoBD.php';
 class UsuarioDAO {
     
-    public function incluir($nome,$email,$login, $senha) {
+    public function incluir($email,$login, $senha) {
         $conexao = new ConexaoBD();
         $conecta = $conexao->conectar(); 
         // Inserir registro
-        $sql = "INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `login`, `senha`) VALUES (NULL, '$nome', '$email', '$login', '$senha');";
+        $sql = "INSERT INTO `usuario` (`idusuario`, `email`, `login`, `senha`) VALUES (NULL, '$email', '$login', '$senha');";
         if ($conecta->query($sql) === TRUE) {
             echo "<script>"."alert('Conta criada com sucesso');"."</script>";
             die;
@@ -71,33 +71,6 @@ class UsuarioDAO {
         
         }
         
-    public function pegarIdVet($nome){
-        $conexao = new ConexaoBD();
-        $conecta = $conexao->conectar();
-        
-        $sql = "SELECT id_vet FROM veterinarios WHERE nome like '%$nome%'";
-        $resultado = $conecta->query($sql);
-        
-        $conexao->desconectar();
-        return $resultado;
-        
-    }
-    
-    public function buscarUsuario($id_usuario) {
-        $conexao = new ConexaoBD();
-        $conecta = $conexao->conectar();
-        
-        $sql = "SELECT * FROM usuario WHERE id_usuario = '$id_usuario';";
-        $resultado = $conecta->query($sql);
-        if ($resultado->num_rows >= 0) {
-            return $resultado;
-            die;
-        } else {
-            echo "0 results";
-        }
-        
-        $conexao->desconectar();
-    }
     
     public function logar($usuario,$senha) {
         $conexao = new ConexaoBD();
@@ -109,7 +82,7 @@ class UsuarioDAO {
         // saída dos dados
         while($linha = $resultado->fetch_assoc()) {
             echo "<script>"."alert('Login efetuado com sucesso');"."</script>";
-            header('location:pagina.php');
+            header("location:main.php");
             die;
             //Colocar a ação que irá fazer ao logar. Exemplo: redirecionamento com header  
         }
@@ -125,49 +98,17 @@ class UsuarioDAO {
         header('Location: login.php');
     }
     
-    public function adicionarConsulta($data, $hora, $tipo_animal, $obs, $id_usuario, $id_vet){
+    public function adicionarForum($titulo, $texto){
         $conexao = new ConexaoBD();
         $conecta = $conexao->conectar();
         
-        $sql = "INSERT INTO `consultas` (`id_con`, `data_consulta`, `hora_consulta`, `animal`, `obs`, `fk_usuario`, `fk_vet`) "
-                . "VALUES (NULL, '$data', '$hora', '$tipo_animal', '$obs', '$id_usuario', '$id_vet');";
+        $sql = "INSERT INTO `forum` (`idforum`, `titulo`, `texto`, `fkusuario`, `data`) VALUES (NULL, '$titulo', '$texto', '1', '2024-04-01 15:05:43.000000')";
         
         if($conecta->query($sql) === TRUE){
-            echo "<script>alert('Consulta adicionada com sucesso!')</script>";
-            header('Location: perfil.php');
+            echo "<script>alert('Fórum criado com sucesso!')</script>";
             die;
         }else{
-            echo "<script>alert('Erro na criação da sua consulta')</script>";
-        }
-        
-        $conexao->desconectar();
-    }
-    
-    public function buscarConsulta($id) {
-        $conexao = new ConexaoBD();
-        $conecta = $conexao->conectar();
-        
-        $sql = "SELECT usuario.nome, veterinarios.nome as nomeveterinario, data_consulta, hora_consulta, animal, obs, id_con from consultas INNER JOIN usuario on fk_usuario = '$id' INNER JOIN veterinarios on fk_vet = id_vet GROUP BY id_con;";
-        $resultado = $conecta->query($sql);
-        if ($resultado->num_rows >= 0) {
-            return $resultado;
-        } else {
-            echo "0 results";
-        }
-        
-        $conexao->desconectar();
-    }
-    
-    public function pesquisarConsulta($info, $id){
-        $conexao = new ConexaoBD();
-        $conecta = $conexao->conectar();
-        
-        $sql = "SELECT usuario.nome, veterinarios.nome as nomeveterinario, data_consulta, hora_consulta, animal, obs, id_con from usuario INNER JOIN consultas on fk_usuario = '$id' INNER JOIN veterinarios on fk_vet = id_vet WHERE animal LIKE '%$info%' OR data_consulta LIKE '%$info%' OR hora_consulta LIKE '%$info%' OR veterinarios.nome LIKE '%$info%' OR obs LIKE '%$info%' GROUP BY id_con;";
-        $resultado = $conecta->query($sql);
-        if ($resultado->num_rows >= 0) {
-            return $resultado;
-        } else {
-            echo "<script>alert('Nenhuma consulta encontrada!');</script>";
+            echo "<script>alert('Erro na criação do seu fórum')</script>";
         }
         
         $conexao->desconectar();
